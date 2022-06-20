@@ -18,25 +18,29 @@
         } 
 
         function playGame() {
-            let playerSelection = prompt("Rock,Paper,or Scissors?")
-            let computerSelection = alert("The computer has chosen " + computerPlay())
+            let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase()
+            let computerSelection = computerPlay()
 
-            if ((playerSelection == "Rock" && computerSelection == 
-            "Scissors") || (playerSelection == "Paper" && 
-            computerSeletion == "Scissors") || (playerSelection == 
-            "Scissors" && computerSelection == "Paper")) { 
-                alert("You have won!") 
-            } else if ((playerSelection == "Rock" && computerSelection == 
-            "Paper") || (playerSelection == "Paper" && 
-            computerSeletion == "Scissors") || (playerSelection == 
-            "Scissors" && computerSelection == "Rock")) { 
-                alert("You lose! " + computerSelection + " beats" + playerSelection) 
-            } else if ((playerSelection == "Rock" && computerSelection == 
-            "Rock") || (playerSelection == "Paper" && 
-            computerSeletion == "Paper") || (playerSelection == 
-            "Scissors" && computerSelection == "Scissors")) { 
-                alert("It's a draw!") 
-            } else {"Invalid input... try again!"} } 
+            switch (true) {
+                case (playerSelection === "rock" && computerSelection === "Scissors"):
+                case (playerSelection === "paper" && computerSelection === "Rock"):
+                case (playerSelection === "scissors" && computerSelection === "Paper"):
+                    alert(("The computer has chosen ") + computerSelection + (". ") + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" beats ") + computerSelection + (". Congratulations! You Won!" ))
+                    break; 
+                case (playerSelection === "rock" && computerSelection === "Rock"):
+                case (playerSelection === "paper" && computerSelection === "Paper"):
+                case (playerSelection === "scissors" && computerSelection === "Scissors"):
+                    alert("The computer has chosen " + computerSelection + "." + " You have both picked the same choice. It is a draw!")
+                    break;
+                case (playerSelection === "rock" && computerSelection === "Paper"):
+                case (playerSelection === "paper" && computerSelection === "Scissors"):
+                case (playerSelection === "scissors" && computerSelection === "Rock"):
+                    alert(("The computer has chosen ") + computerSelection + (". ") + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" loses to ") + computerSelection + (". You lost! Loser!") )
+                    break;
+                default: 
+                    alert("You made an invalid choice! Choose either Rock, Paper, or Scissors!")
+            } 
+        }
 
             console.log(playGame())
 
