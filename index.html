@@ -17,7 +17,7 @@
             }
         } 
 
-        function playGame() {
+        function playRound() {
             let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase()
             let computerSelection = computerPlay()
 
@@ -26,23 +26,36 @@
                 case (playerSelection === "paper" && computerSelection === "Rock"):
                 case (playerSelection === "scissors" && computerSelection === "Paper"):
                     alert(("The computer has chosen ") + computerSelection + (". ") + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" beats ") + computerSelection + (". Congratulations! You Won!" ))
+                    return ("Player Won")
                     break; 
                 case (playerSelection === "rock" && computerSelection === "Rock"):
                 case (playerSelection === "paper" && computerSelection === "Paper"):
                 case (playerSelection === "scissors" && computerSelection === "Scissors"):
                     alert("The computer has chosen " + computerSelection + "." + " You have both picked the same choice. It is a draw!")
+                    return ("Draw")
                     break;
                 case (playerSelection === "rock" && computerSelection === "Paper"):
                 case (playerSelection === "paper" && computerSelection === "Scissors"):
                 case (playerSelection === "scissors" && computerSelection === "Rock"):
                     alert(("The computer has chosen ") + computerSelection + (". ") + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" loses to ") + computerSelection + (". You lost! Loser!") )
+                    return ("Computer Won")
                     break;
                 default: 
                     alert("You made an invalid choice! Choose either Rock, Paper, or Scissors!")
             } 
         }
 
-            console.log(playGame())
+        function game() {
+            for (let i = 0; i < 5; i++) {
+           
+            console.log(playRound())
+            
+            }
+      } 
+        
+
+
+            console.log(game())
 
 
     </script>
