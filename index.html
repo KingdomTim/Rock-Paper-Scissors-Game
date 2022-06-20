@@ -16,7 +16,29 @@
                 return("Scissors")
             }
         } 
-        
+
+        function playGame(playerSelection,computerSelection) {
+            let playerSelection = prompt("Rock,Paper,or Scissors?")
+            let computerSelection = alert("The computer has chosen " 
+            + computerPlay())
+
+            if ((playerSelection == "Rock" && computerSelection == 
+            "Scissors") || (playerSelection == "Paper" && 
+            computerSeletion == "Scissors") || (playerSelection == 
+            "Scissors" && computerSelection == "Paper")) {
+                alert("You have won!") 
+            } else if ((playerSelection == "Rock" && computerSelection == 
+            "Paper") || (playerSelection == "Paper" && 
+            computerSeletion == "Scissors") || (playerSelection == 
+            "Scissors" && computerSelection == "Rock")) {
+                alert("You have lost...")
+            } else if ((playerSelection == "Rock" && computerSelection == 
+            "Rock") || (playerSelection == "Paper" && 
+            computerSeletion == "Paper") || (playerSelection == 
+            "Scissors" && computerSelection == "Scissors")) {
+                alert("It's a draw!")
+            } else {"Invalid input... try again!"}
+            
 console.log(computerPlay())
 
 
