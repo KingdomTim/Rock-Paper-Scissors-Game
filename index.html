@@ -46,16 +46,26 @@
         }
 
         function game() {
+
+            let playerScore = 0
+            let computerScore = 0
+
             for (let i = 0; i < 5; i++) {
-           
-            console.log(playRound())
-            
+        
+        
+            if (playRound() === "Player Won") {
+                console.log("Player Score:" + playerScore++)
+            } else if (playRound() === "Computer Won") {
+                console.log("Computer Score:" + computerScore++)
+            } else {
+                console.log("Stalemate")
             }
+        }
       } 
         
 
 
-            console.log(game())
+            game()
 
 
     </script>
