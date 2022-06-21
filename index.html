@@ -51,14 +51,14 @@
             let computerScore = 0
 
 
-            for (let i = 1; playerScore <=5 || computerScore <=5; i++) {
+            for (let i = 1; playerScore <=6 || computerScore <=6; i++) {
             
             let round = playRound()
             
             if (round === "Player Won") {
-                console.log(`Player Score: ${playerScore++}`)
+                console.log(`Player Score: ${++playerScore}`)
             } else if (round === "Computer Won") {
-                console.log(`Computer Score: ${computerScore++}`)
+                console.log(`Computer Score: ${++computerScore}`)
             } else {
                 console.log("Stalemate") 
             }
