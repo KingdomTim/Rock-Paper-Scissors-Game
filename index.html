@@ -41,7 +41,7 @@
 
         let playerScore = 0
         let computerScore = 0
-        
+
         const rock = document.querySelector('#rock')
         rock.addEventListener('click', (e) => {
         playRound(e.target.getAttribute('id')) 
@@ -65,6 +65,59 @@
         const playAgain = document.querySelector('.playAgain')
         const compChoice = document.querySelector('.compChoice')
         const playerChoice = document.querySelector('.playerChoice')
+
+        function restartGame() {
+            score.textContent = ('Score: 0 to 0')
+            playerChoice.textContent =('Player Choice:')
+            compChoice.textContent =('Computer Choice:')
+            results.textContent =('')
+            winOrLose.textContent =('')
+            playAgain.textContent =('')
+             playerScore = 0
+             computerScore = 0
+        }
+
+        function endGame() {
+            rock.removeEventListener('click', playRound)
+            paper.removeEventListener('click', playRound)
+            scissors.removeEventListener('click', playRound)
+        }
+
+        function checkScore() {
+            if (playerScore === 5) {
+                endGame()
+                winOrLose.textContent = ('Congratulations! You Won!')
+                playAgain.textContent =('Do you want to play again?')
+                const yes = document.createElement('button')
+                const no = document.createElement('button')
+                yes.textContent = 'Yes'
+                no.textContent = 'No'
+                playAgain.appendChild(yes)
+                playAgain.appendChild(no)
+                yes.addEventListener('click',(e) => {
+                    restartGame()
+                })
+                no.addEventListener('click',(e) => {
+                    playAgain.textContent = ('l8r d00d')
+                })
+            } else if (computerScore === 5) {
+                endGame()
+                winOrLose.textContent = ('You lost')
+                playAgain.textContent =('Do you want to play again?')
+                const yes = document.createElement('button')
+                const no = document.createElement('button')
+                yes.textContent = 'Yes'
+                no.textContent = 'No'
+                playAgain.appendChild(yes)
+                playAgain.appendChild(no)
+                yes.addEventListener('click',(e) => {
+                    restartGame()
+                })
+                no.addEventListener('click',(e) => {
+                    playAgain.textContent = ('l8r d00d')
+                })
+            }
+        }
             
         
         function computerPlay() {
