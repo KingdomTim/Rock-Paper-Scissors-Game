@@ -84,7 +84,6 @@
 
         function checkScore() {
             if (playerScore === 5) {
-                endGame()
                 winOrLose.textContent = ('Congratulations! You Won!')
                 playAgain.textContent =('Do you want to play again?')
                 const yes = document.createElement('button')
@@ -100,7 +99,6 @@
                     playAgain.textContent = ('l8r d00d')
                 })
             } else if (computerScore === 5) {
-                endGame()
                 winOrLose.textContent = ('You lost')
                 playAgain.textContent =('Do you want to play again?')
                 const yes = document.createElement('button')
@@ -117,17 +115,26 @@
                 })
             }
         }
-            
-        
+    
+
         function computerPlay() {
             if (Math.floor(Math.random() * 3) === 0) {
-                compRock.style.transform = 'scale(1.2)'
+                compRock.classList.add("active")
+                setTimeout(() => {
+                    compRock.classList.remove("active");
+                },300);
                 return("Rock")
             } else if (Math.floor(Math.random() * 3) === 1) {
-                compPaper.style.transform = 'scale(1.2)'
+                compPaper.classList.add("active")
+                setTimeout(() => {
+                    compPaper.classList.remove("active");
+                },300);
                 return("Paper")
             } else {
-                compScissors.style.transform = 'scale(1.2)'
+                compScissors.classList.add("active")
+                setTimeout(() => {
+                    compScissors.classList.remove("active");
+                },300);
                 return("Scissors")
             }
         } 
@@ -142,25 +149,51 @@
                 case (playerSelection === "rock" && computerSelection === "Scissors"):
                 case (playerSelection === "paper" && computerSelection === "Rock"):
                 case (playerSelection === "scissors" && computerSelection === "Paper"):
+                    playerChoice.classList.add("yellow")
+                    setTimeout(() => {
+                    playerChoice.classList.remove("yellow");
+                    },100);
                     playerChoice.textContent = ("Player Choice: " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1))
-                    
+                    compChoice.classList.add("yellow")
+                    setTimeout(() => {
+                        compChoice.classList.remove("yellow");
+                    },100);
                     compChoice.textContent = ("Computer Choice: " + computerSelection)
+                    results.classList.add("green")
                     results.textContent = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" beats ") + computerSelection + (". You Win this round!" )
                     score.textContent = ("Score: " + ++playerScore + " to " + computerScore)
                     break; 
                 case (playerSelection === "rock" && computerSelection === "Rock"):
                 case (playerSelection === "paper" && computerSelection === "Paper"):
                 case (playerSelection === "scissors" && computerSelection === "Scissors"):
+                    playerChoice.classList.add("yellow")
+                    setTimeout(() => {
+                        playerChoice.classList.remove("yellow");
+                    },100);
                     playerChoice.textContent = ("Player Choice: " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1))
+                    compChoice.classList.add("yellow")
+                    setTimeout(() => {
+                        compChoice.classList.remove("yellow");
+                    },100);
                     compChoice.textContent = ("Computer Choice: " + computerSelection) 
+                    results.classList.add("grey")
                     results.textContent = (" You have both picked the same choice. It is a draw!")
                     score.textContent = ("Score: " + playerScore + " to " + computerScore)
                     break;
                 case (playerSelection === "rock" && computerSelection === "Paper"):
                 case (playerSelection === "paper" && computerSelection === "Scissors"):
                 case (playerSelection === "scissors" && computerSelection === "Rock"):
+                    playerChoice.classList.add("yellow")
+                    setTimeout(() => {
+                        playerChoice.classList.remove("yellow");
+                    },100);
                     playerChoice.textContent = ("Player Choice: " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1))
+                    compChoice.classList.add("yellow")
+                    setTimeout(() => {
+                        compChoice.classList.remove("yellow");
+                    },100);
                     compChoice.textContent = ("Computer Choice: " + computerSelection) 
+                    results.classList.add("red")
                     results.textContent = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" loses to ") + computerSelection + (". You lost this round!") 
                     score.textContent = ("Score: " + playerScore + " to " + ++computerScore)
                     break;

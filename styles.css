@@ -53,3 +53,22 @@ img {
     color: palevioletred
 }
 
+.active {
+    transform: scale(1.2)
+}
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.grey {
+    color: grey;
+}
