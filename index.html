@@ -39,6 +39,9 @@
     
     <script>
 
+        let playerScore = 0
+        let computerScore = 0
+        
         const rock = document.querySelector('#rock')
         rock.addEventListener('click', (e) => {
         playRound(e.target.getAttribute('id')) 
