@@ -39,7 +39,30 @@
     
     <script>
 
-   
+        const rock = document.querySelector('#rock')
+        rock.addEventListener('click', (e) => {
+        playRound(e.target.getAttribute('id')) 
+        })
+
+        const paper = document.querySelector('#paper')
+        paper.addEventListener('click', (e) => {
+        playRound(e.target.getAttribute('id'))
+        })
+
+        const scissors = document.querySelector('#scissors')
+        scissors.addEventListener('click', (e) => {
+        playRound(e.target.getAttribute('id'))
+        })
+
+        const compSelection = document.querySelector('.computerSelection')
+        const results = document.querySelector('.results')
+        const rpsGame = document.querySelector('.rpsGame')
+        const score = document.querySelector('.score')
+        const winOrLose = document.querySelector('.winOrLose')
+        const playAgain = document.querySelector('.playAgain')
+        const compChoice = document.querySelector('.compChoice')
+        const playerChoice = document.querySelector('.playerChoice')
+            
         
         function computerPlay() {
             if (Math.floor(Math.random() * 3) === 0) {
@@ -52,7 +75,10 @@
         } 
 
 
-            
+        function playRound(playerSelection, computerSelection) {
+            let e = playerSelection;
+            e = document.querySelector(`id`)
+            computerSelection = computerPlay() 
 
             switch (true) {
                 case (playerSelection === "rock" && computerSelection === "Scissors"):
