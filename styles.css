@@ -1,0 +1,55 @@
+
+body {
+    background-color: darkslateblue
+}
+.rpsGame {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 850px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+img {
+    display:flex;
+    height: 175px;
+}
+
+.playerSelection {
+    display:flex;
+    gap: 20px;
+    border: 3px solid black;
+    height: 225px;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.computerSelection {
+    display:flex;
+    gap: 20px;
+    border: 3px solid black;
+    height: 225px;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+#rock:hover, 
+#paper:hover,
+#scissors:hover {
+    cursor: pointer;
+    transform: scale(1.2)
+}
+
+.title {
+    font-weight: bold;
+    font-size: 70px;
+    font-family: 'Courier New', Courier, monospace;
+    color: palevioletred
+}
+

@@ -7,7 +7,9 @@
     </head>
 <body>
     <div class = "rpsGame">
+        <div class = "title">
         ROCK PAPER SCISSORS
+        </div>
         <div class = "playerChoice">
             Player Choice: 
         </div>
@@ -26,9 +28,9 @@
         <div class = "playAgain">
         </div>
         <div class = "computerSelection">    
-                <img src ="rock.png">
-                <img src ="paper1.png">
-                <img src ="scissors.png">
+                <img src ="rock.png" class="compRock">
+                <img src ="paper.png" class="compPaper">
+                <img src ="scissors.png" class="compScissors">
         </div>
         <div class = "compChoice">
             Computer Choice: 
@@ -65,6 +67,9 @@
         const playAgain = document.querySelector('.playAgain')
         const compChoice = document.querySelector('.compChoice')
         const playerChoice = document.querySelector('.playerChoice')
+        const compRock = document.querySelector('.compRock')
+        const compPaper = document.querySelector('.compPaper')
+        const compScissors = document.querySelector('.compScissors')
 
         function restartGame() {
             score.textContent = ('Score: 0 to 0')
@@ -75,12 +80,6 @@
             playAgain.textContent =('')
              playerScore = 0
              computerScore = 0
-        }
-
-        function endGame() {
-            rock.removeEventListener('click', playRound)
-            paper.removeEventListener('click', playRound)
-            scissors.removeEventListener('click', playRound)
         }
 
         function checkScore() {
@@ -122,10 +121,13 @@
         
         function computerPlay() {
             if (Math.floor(Math.random() * 3) === 0) {
+                compRock.style.transform = 'scale(1.2)'
                 return("Rock")
             } else if (Math.floor(Math.random() * 3) === 1) {
+                compPaper.style.transform = 'scale(1.2)'
                 return("Paper")
             } else {
+                compScissors.style.transform = 'scale(1.2)'
                 return("Scissors")
             }
         } 
@@ -141,6 +143,7 @@
                 case (playerSelection === "paper" && computerSelection === "Rock"):
                 case (playerSelection === "scissors" && computerSelection === "Paper"):
                     playerChoice.textContent = ("Player Choice: " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1))
+                    
                     compChoice.textContent = ("Computer Choice: " + computerSelection)
                     results.textContent = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" beats ") + computerSelection + (". You Win this round!" )
                     score.textContent = ("Score: " + ++playerScore + " to " + computerScore)
@@ -167,6 +170,10 @@
             
             checkScore()
         }       
-        
 
+    </script>        
+
+</body>
+
+</html>
         
