@@ -3,9 +3,43 @@
     <head>
         <meta charset="UFT-8">
         <title>Rock Paper Scissors Game</title>
+        <link rel="stylesheet" href="styles.css"/>
     </head>
 <body>
+    <div class = "rpsGame">
+        ROCK PAPER SCISSORS
+        <div class = "playerChoice">
+            Player Choice: 
+        </div>
+        <div class = "playerSelection">
+            <img src ="rock.png" id ="rock">
+            <img src ="paper.png" id = "paper">
+            <img src = "scissors.png" id ="scissors">
+        </div>
+        <div class = "results">
+        </div>
+        <div class = "score">
+            Score: 0 to 0
+        </div>
+        <div class = "winOrLose">
+        </div>
+        <div class = "playAgain">
+        </div>
+        <div class = "computerSelection">    
+                <img src ="rock.png">
+                <img src ="paper1.png">
+                <img src ="scissors.png">
+        </div>
+        <div class = "compChoice">
+            Computer Choice: 
+        </div>
+        </div>
+    </div>
+</div>
+    
     <script>
+
+   
         
         function computerPlay() {
             if (Math.floor(Math.random() * 3) === 0) {
@@ -17,79 +51,39 @@
             }
         } 
 
-        function playRound() {
-            let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase()
-            let computerSelection = computerPlay()
+
+            
 
             switch (true) {
                 case (playerSelection === "rock" && computerSelection === "Scissors"):
                 case (playerSelection === "paper" && computerSelection === "Rock"):
                 case (playerSelection === "scissors" && computerSelection === "Paper"):
-                    alert(("The computer has chosen ") + computerSelection + (". ") + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" beats ") + computerSelection + (". You Win this round!" ))
-                    return ("Player Won")
+                    playerChoice.textContent = ("Player Choice: " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1))
+                    compChoice.textContent = ("Computer Choice: " + computerSelection)
+                    results.textContent = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" beats ") + computerSelection + (". You Win this round!" )
+                    score.textContent = ("Score: " + ++playerScore + " to " + computerScore)
                     break; 
                 case (playerSelection === "rock" && computerSelection === "Rock"):
                 case (playerSelection === "paper" && computerSelection === "Paper"):
                 case (playerSelection === "scissors" && computerSelection === "Scissors"):
-                    alert("The computer has chosen " + computerSelection + "." + " You have both picked the same choice. It is a draw!")
-                    return ("Draw")
+                    playerChoice.textContent = ("Player Choice: " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1))
+                    compChoice.textContent = ("Computer Choice: " + computerSelection) 
+                    results.textContent = (" You have both picked the same choice. It is a draw!")
+                    score.textContent = ("Score: " + playerScore + " to " + computerScore)
                     break;
                 case (playerSelection === "rock" && computerSelection === "Paper"):
                 case (playerSelection === "paper" && computerSelection === "Scissors"):
                 case (playerSelection === "scissors" && computerSelection === "Rock"):
-                    alert(("The computer has chosen ") + computerSelection + (". ") + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" loses to ") + computerSelection + (". You lost this round!") )
-                    return ("Computer Won")
+                    playerChoice.textContent = ("Player Choice: " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1))
+                    compChoice.textContent = ("Computer Choice: " + computerSelection) 
+                    results.textContent = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" loses to ") + computerSelection + (". You lost this round!") 
+                    score.textContent = ("Score: " + playerScore + " to " + ++computerScore)
                     break;
                 default: 
                     alert("You made an invalid choice! Choose either Rock, Paper, or Scissors!")
-            } 
-        }
-
-        function game() {
-
-            let playerScore = 0
-            let computerScore = 0
-
-
-            for (let i = 1; playerScore <=6 || computerScore <=6; i++) {
-            
-            let round = playRound()
-            
-            if (round === "Player Won") {
-                console.log(`Player Score: ${++playerScore}`)
-            } else if (round === "Computer Won") {
-                console.log(`Computer Score: ${++computerScore}`)
-            } else {
-                console.log("Stalemate") 
             }
-
-            if (playerScore === 5) {
-                console.log("Player has won the match")
-                alert("You did it! You beat the computer! You win nothing!")
-                    if (confirm("Do you want to play again?") === true) {
-                        game()
-                    } else {
-                        break;
-                     }
-            } else if (computerScore === 5) {
-                console.log("Player has lost the match")
-                alert("You are, above all else, a failure to yourself and to mankind. How do you lose to a computer?")
-                if (confirm("Do you want to play again?") === true) {
-                    game() 
-                } else {
-                break;
-                }
-            } else {
-                alert("The score is " + playerScore + " to " + computerScore + " right now. First to 5 wins!" )
-            }
-        }
-      } 
+            
+        }       
         
 
-
-            game()
-
-
-    </script>
-</body>
-</html>
+        
