@@ -89,6 +89,7 @@
                 const yes = document.createElement('button')
                 const no = document.createElement('button')
                 yes.textContent = 'Yes'
+                yes.style.width = '80px'
                 no.textContent = 'No'
                 playAgain.appendChild(yes)
                 playAgain.appendChild(no)
@@ -96,7 +97,7 @@
                     restartGame()
                 })
                 no.addEventListener('click',(e) => {
-                    playAgain.textContent = ('l8r d00d')
+                    playAgain.textContent = ('Thanks for playing!')
                 })
             } else if (computerScore === 5) {
                 winOrLose.textContent = ('You lost')
@@ -111,7 +112,7 @@
                     restartGame()
                 })
                 no.addEventListener('click',(e) => {
-                    playAgain.textContent = ('l8r d00d')
+                    playAgain.textContent = ('Thanks for playing!')
                 })
             }
         }
@@ -159,6 +160,8 @@
                         compChoice.classList.remove("yellow");
                     },100);
                     compChoice.textContent = ("Computer Choice: " + computerSelection)
+                    results.classList.remove("red")
+                    results.classList.remove("grey")
                     results.classList.add("green")
                     results.textContent = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" beats ") + computerSelection + (". You Win this round!" )
                     score.textContent = ("Score: " + ++playerScore + " to " + computerScore)
@@ -176,6 +179,8 @@
                         compChoice.classList.remove("yellow");
                     },100);
                     compChoice.textContent = ("Computer Choice: " + computerSelection) 
+                    results.classList.remove("red")
+                    results.classList.remove("green")
                     results.classList.add("grey")
                     results.textContent = (" You have both picked the same choice. It is a draw!")
                     score.textContent = ("Score: " + playerScore + " to " + computerScore)
@@ -192,7 +197,9 @@
                     setTimeout(() => {
                         compChoice.classList.remove("yellow");
                     },100);
-                    compChoice.textContent = ("Computer Choice: " + computerSelection) 
+                    compChoice.textContent = ("Computer Choice: " + computerSelection)
+                    results.classList.remove("green")
+                    results.classList.remove("grey") 
                     results.classList.add("red")
                     results.textContent = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" loses to ") + computerSelection + (". You lost this round!") 
                     score.textContent = ("Score: " + playerScore + " to " + ++computerScore)
