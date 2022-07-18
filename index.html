@@ -70,6 +70,15 @@
         const compRock = document.querySelector('.compRock')
         const compPaper = document.querySelector('.compPaper')
         const compScissors = document.querySelector('.compScissors')
+        
+        function remove() {
+            rock.removeAttribute('id')
+            paper.removeAttribute('id')
+            scissors.removeAttribute('id')
+            compRock.classList.remove("active")
+            compPaper.classList.remove("active")
+            compScissors.classList.remove("active")
+        }
 
         function restartGame() {
             score.textContent = ('Score: 0 to 0')
@@ -78,41 +87,57 @@
             results.textContent =('')
             winOrLose.textContent =('')
             playAgain.textContent =('')
+            rock.setAttribute('id', 'rock')
+            paper.setAttribute('id', 'paper')
+            scissors.setAttribute('id', 'scissors')
              playerScore = 0
              computerScore = 0
         }
 
+        function removeThis () {
+            playAgain.classList.remove('.playAgain')
+            yes.classList.remove('.yes')
+            no.classList.remove('.no')
+        }
+
+
+
         function checkScore() {
             if (playerScore === 5) {
+                remove()
                 winOrLose.textContent = ('Congratulations! You Won!')
                 playAgain.textContent =('Do you want to play again?')
                 const yes = document.createElement('button')
                 const no = document.createElement('button')
                 yes.textContent = 'Yes'
-                yes.style.width = '80px'
+                yes.style.width = '100px'
                 no.textContent = 'No'
+                no.style.width = '100px'
                 playAgain.appendChild(yes)
                 playAgain.appendChild(no)
                 yes.addEventListener('click',(e) => {
                     restartGame()
                 })
                 no.addEventListener('click',(e) => {
-                    playAgain.textContent = ('Thanks for playing!')
+                    window.close()
                 })
             } else if (computerScore === 5) {
-                winOrLose.textContent = ('You lost')
+                remove()
+                winOrLose.textContent = ('You lost to a computer! How does that even happen?')
                 playAgain.textContent =('Do you want to play again?')
                 const yes = document.createElement('button')
                 const no = document.createElement('button')
                 yes.textContent = 'Yes'
+                yes.style.width = '100px'
                 no.textContent = 'No'
+                no.style.width = '100px'
                 playAgain.appendChild(yes)
                 playAgain.appendChild(no)
                 yes.addEventListener('click',(e) => {
                     restartGame()
                 })
                 no.addEventListener('click',(e) => {
-                    playAgain.textContent = ('Thanks for playing!')
+                    window.close()
                 })
             }
         }
@@ -204,8 +229,6 @@
                     results.textContent = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1) + (" loses to ") + computerSelection + (". You lost this round!") 
                     score.textContent = ("Score: " + playerScore + " to " + ++computerScore)
                     break;
-                default: 
-                    alert("You made an invalid choice! Choose either Rock, Paper, or Scissors!")
             }
             
             checkScore()
