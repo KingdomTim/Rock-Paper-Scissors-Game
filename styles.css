@@ -79,3 +79,20 @@ img {
     flex-direction: row;
     gap: 5px;
 }
+
+.footer {
+    display: flex;
+    align-items: flex-end;
+    font-size: 15px;
+    gap: 5px;
+}
+
+.github {
+    width: 20px;
+    height: 20px;
+}
+
+.github:hover {
+    width: 23px;
+    height: 23px;
+}
