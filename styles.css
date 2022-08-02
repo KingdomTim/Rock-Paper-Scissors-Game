@@ -93,6 +93,5 @@ img {
 }
 
 .github:hover {
-    width: 23px;
-    height: 23px;
+    transform: scale(1.1)
 }
